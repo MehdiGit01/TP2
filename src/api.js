@@ -1,4 +1,4 @@
-
+import fetch from 'node-fetch';
 
 /**
  * Récupère les données de l'endpoint en utilisant les identifiants
