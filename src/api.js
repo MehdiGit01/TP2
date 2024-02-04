@@ -51,10 +51,18 @@ const marvelData = await getData(url);
 
 console.log(marvelData);
 
-const thorData = marvelData.data.results.find(character => character.name === 'Hulk');
+const hulkData = marvelData.data.results.find(character => character.name === 'Hulk');
 
-if (thorData) {
-    console.log('Données de Thor:', thorData);
+if (hulkData) {
+    console.log('Données de Hulk:', hulkData);
+
+
+    if (hulkData.thumbnail && hulkData.thumbnail.path && hulkData.thumbnail.extension) {
+        console.log('Thumbnail URL:', `${hulkData.thumbnail.path}.${hulkData.thumbnail.extension}`);
+    } else {
+        console.log('Il n\'a pas d\'image thumbnail valide pour Hulk.');
+    }
 } else {
-    console.log('Thor n\'a pas été trouvé dans les résultats.');
+    console.log('Hulk n\'a pas été trouvé dans les résultats.');
 }
+
