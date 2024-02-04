@@ -66,3 +66,15 @@ if (hulkData) {
     console.log('Hulk n\'a pas été trouvé dans les résultats.');
 }
 
+const charactersArray = marvelData.data.results.map(character => {
+    const imageUrl = character.thumbnail && character.thumbnail.path && character.thumbnail.extension
+        ? `${character.thumbnail.path}/portrait_xlarge.${character.thumbnail.extension}`
+        : null;
+
+    return {
+        name: character.name,
+        imageUrl: imageUrl,
+    };
+});
+
+console.log('Tableau de personnages :', charactersArray);
